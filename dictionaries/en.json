@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "login": "Log In",
+    "register": "Sign Up",
+    "help": "Help",
+    "disclaimer": "Disclaimer",
+    "logout": "Log Out"
+  },
+  "home": {
+    "title": "Extract your content instantly",
+    "subtitle": "The fastest direct download engine. Paste a link, choose format, and enjoy your file instantly, without complications or download managers.",
+    "placeholder": "https://host.be/...",
+    "extract": "Extract",
+    "downloading": "Downloading...",
+    "completed": "Download completed",
+    "format": "Format",
+    "quality": "Quality",
+    "preview": "Download Preview",
+    "waiting": "Content information will appear here once you enter a valid link."
+  },
+  "auth": {
+    "loginTitle": "Welcome back",
+    "loginDesc": "Enter VeloStream. Download fast, directly and clean, keeping only your final files on your device.",
+    "registerTitle": "Create account",
+    "registerDesc": "Join VeloStream. Turn any link into the file you need in seconds.",
+    "email": "Email Address",
+    "user": "Username",
+    "password": "Password",
+    "enter": "Sign In",
+    "start": "Start for free",
+    "acceptTerms": "I have read and accept the Legal Disclaimer.",
+    "termsError": "You must accept the legal terms to continue."
+  },
+  "help": {
+    "title": "Help & Support",
+    "desc": "Everything you need to know to download content fast and hassle-free.",
+    "q1": "How do I download a video?",
+    "a1": "Just copy the video link, paste it into the home input, select the format (MP4 or MP3) and click Extract.",
+    "q2": "Do I have to install anything?",
+    "a2": "Nope. VeloStream works entirely in your browser. We do the heavy lifting, you receive a clean file.",
+    "q3": "Does this site manage my downloads or keep my history?",
+    "a3": "No. Our philosophy is simple: you enter, download your file, and leave. We are not a manager and we don't keep libraries of your activity."
+  },
+  "legal": {
+    "title": "Legal Disclaimer",
+    "desc": "Please read this warning before using the tool.",
+    "body1": "VeloStream is a service designed exclusively for downloading public or public domain content for personal use, research or fair use.",
+    "body2": "We do not host, store, or distribute copyrighted files. All processing is done in real time and the file is delivered to your machine at your own risk.",
+    "body3": "By using our engine, you agree not to infringe third-party copyrights. The end user assumes full responsibility for the audiovisual material generated through our tools.",
+    "dmcaTitle": "DMCA Contact",
+    "dmcaDesc": "If you represent copyright owners and believe our tool is being used to demonstrably infringe on your content, you can contact us:",
+    "dmcaEmail": "franciscofrarojas594@gmail.com"
+  }
+}
