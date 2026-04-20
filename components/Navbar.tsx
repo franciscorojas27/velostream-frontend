@@ -1,17 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useTranslation } from "./I18nProvider";
 
 export function Navbar() {
   const { t, lang, setLang } = useTranslation();
-  const pathname = usePathname();
-
-  if (pathname?.startsWith("/login") || pathname?.startsWith("/register")) {
-    return null;
-  }
-
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#050505]/80 backdrop-blur-xl">
@@ -41,18 +34,6 @@ export function Navbar() {
             className="flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-xs font-semibold uppercase text-neutral-400 backdrop-blur-md transition hover:bg-white/10 hover:text-white"
           >
             {lang === "es" ? "ES" : "EN"}
-          </button>
-
-          <button
-            onClick={async () => {
-              try {
-                const res = await fetch("/api/auth/logout");
-                if (res.ok) window.location.href = "/login";
-              } catch {}
-            }}
-            className="text-sm font-medium text-cyan-400 transition hover:text-cyan-300"
-          >
-            {t.nav.logout}
           </button>
         </div>
       </div>

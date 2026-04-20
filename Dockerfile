@@ -1,5 +1,3 @@
-# Multi-stage Dockerfile for Next.js production build
-
 FROM oven/bun:1 AS builder
 WORKDIR /app
 

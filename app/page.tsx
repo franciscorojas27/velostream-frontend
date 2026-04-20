@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { useTranslation } from "@/components/I18nProvider";
+import { Link } from "lucide-react";
 
 type DownloadFormat = "mp4" | "mp3";
 type VideoQuality = "1080" | "720" | "480" | "360";
@@ -261,7 +262,7 @@ export default function Home() {
             <h2 className="text-5xl font-medium tracking-tight text-white sm:text-6xl lg:text-7xl">
               {t.home.title}
             </h2>
-            
+
             <p className="mt-6 max-w-xl text-lg text-neutral-400">
               {t.home.subtitle}
             </p>
@@ -269,12 +270,10 @@ export default function Home() {
             <form onSubmit={handleDownload} className="mt-10">
               <div className="relative group">
                 <div className="absolute -inset-0.5 rounded-2xl bg-linear-to-r from-cyan-500/30 to-orange-500/30 opacity-20 blur transition duration-500 group-focus-within:opacity-50"></div>
-                
+
                 <div className="relative flex items-center justify-between rounded-2xl border border-white/10 bg-[#0a0a0a] p-2 shadow-2xl backdrop-blur-xl">
                   <div className="flex w-full items-center pl-3">
-                    <svg className="h-5 w-5 text-neutral-500" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.922l-1.757-1.757a4.5 4.5 0 00-6.364 6.364l4.5 4.5c1.989 1.989 5.215 1.989 7.244-.002z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    <Link className="h-5 w-5 text-neutral-500" />
                     <input
                       id="videoUrl"
                       type="url"
@@ -320,7 +319,7 @@ export default function Home() {
                       className="flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isDownloading ? (
-                        <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-20"/><path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" className="opacity-80"/></svg>
+                        <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-20" /><path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" className="opacity-80" /></svg>
                       ) : t.home.extract}
                     </button>
                   </div>
@@ -361,7 +360,7 @@ export default function Home() {
                   </div>
                 </div>
               )}
-  
+
               {error && <p className="mt-4 text-sm font-medium text-red-400">{error}</p>}
               {!error && downloadLabel && !isDownloading && <p className="mt-4 text-sm font-medium text-emerald-400">{downloadLabel}</p>}
             </form>
@@ -370,24 +369,24 @@ export default function Home() {
           <aside className="lg:mt-0 mt-8">
             <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c0c] shadow-2xl">
               <div className="absolute inset-0 bg-linear-to-b from-white/5 to-transparent opacity-50"></div>
-              
+
               <div className="relative p-6">
                 <div className="mb-6 flex items-center gap-2 text-sm text-neutral-400">
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M2.458 12C3.732 7.943 7.522 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M2.458 12C3.732 7.943 7.522 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   {t.home.preview}
                 </div>
 
                 <div className="min-h-80">
                   {loadingInfo && (
-                     <div className="flex h-80 flex-col items-center justify-center space-y-4">
-                       <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-600 border-t-cyan-400"></div>
-                       <p className="text-sm text-neutral-500">Obteniendo metadatos...</p>
-                     </div>
+                    <div className="flex h-80 flex-col items-center justify-center space-y-4">
+                      <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-600 border-t-cyan-400"></div>
+                      <p className="text-sm text-neutral-500">Obteniendo metadatos...</p>
+                    </div>
                   )}
 
                   {!loadingInfo && !videoInfo && (
                     <div className="flex h-80 flex-col items-center justify-center rounded-xl border border-dashed border-white/10 bg-white/5 px-6 text-center">
-                      <svg className="mb-4 h-8 w-8 text-neutral-600" viewBox="0 0 24 24" fill="none"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      <svg className="mb-4 h-8 w-8 text-neutral-600" viewBox="0 0 24 24" fill="none"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       <p className="text-sm text-neutral-400">{t.home.waiting}</p>
                     </div>
                   )}
@@ -417,7 +416,7 @@ export default function Home() {
                         <h4 className="line-clamp-2 text-base font-medium leading-tight text-white" title={videoInfo.title}>
                           {videoInfo.title || "Untitled Video"}
                         </h4>
-                        
+
                         <div className="mt-4 flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-linear-to-tr from-cyan-500 to-emerald-500 text-[10px] font-bold text-white">
@@ -425,7 +424,7 @@ export default function Home() {
                             </div>
                             <p className="text-sm text-neutral-400">{videoInfo.author || "Unknown"}</p>
                           </div>
-                          
+
                           <div className="flex items-center gap-1.5">
                             <span className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-semibold tracking-wider text-neutral-300">
                               {format.toUpperCase()}
@@ -437,9 +436,9 @@ export default function Home() {
                         </div>
 
                         {videoInfo.description && (
-                           <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-neutral-500">
-                             {videoInfo.description}
-                           </p>
+                          <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-neutral-500">
+                            {videoInfo.description}
+                          </p>
                         )}
                       </div>
                     </div>

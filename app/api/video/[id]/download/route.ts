@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -16,20 +15,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
             return NextResponse.json({ error: "Invalid quality" }, { status: 400 });
         }
 
-        const cookieStore = await cookies();
-        const sessionToken = cookieStore.get("session_token");
-        if (!sessionToken) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
-
         const upstream = await fetch(
-            `${process.env.API_URL}/download?id=${encodeURIComponent(id)}&quality=${encodeURIComponent(quality.data)}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${sessionToken.value}`,
-                },
-            },
-        );
+            `${process.env.API_URL}/download?id=${encodeURIComponent(id)}&quality=${encodeURIComponent(quality.data)}`);
 
         if (!upstream.ok) {
             const contentType = upstream.headers.get("content-type") || "";

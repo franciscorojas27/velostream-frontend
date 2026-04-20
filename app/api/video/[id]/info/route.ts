@@ -1,21 +1,10 @@
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const { id } = await params;
 
-        const cookieStore = await cookies();
-        const sessionToken = cookieStore.get("session_token");
-        if (!sessionToken) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
-
-        const res = await fetch(`${process.env.API_URL}/download/video/info?id=${encodeURIComponent(id)}`, {
-            headers: {
-                Authorization: `Bearer ${sessionToken.value}`,
-            },
-        });
+        const res = await fetch(`${process.env.API_URL}/download/video/info?id=${encodeURIComponent(id)}`);
 
         const data = await res.json();
         if (!res.ok) {
